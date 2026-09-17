@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aaradhana V — B.Tech Information Technology student portfolio.">
+  <title>Aaradhana V | IT Student Portfolio</title>
+  <style>
+    :root{
+      --bg:#070b14; --panel:#0e1524; --panel2:#111b2d; --text:#eef5ff;
+      --muted:#9aa9bf; --blue:#4da3ff; --cyan:#61e7ff; --line:#1d2a40;
+      --shadow:0 18px 60px rgba(0,0,0,.35); --radius:22px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:radial-gradient(circle at 80% 10%,rgba(77,163,255,.13),transparent 28%),
+                 radial-gradient(circle at 10% 35%,rgba(97,231,255,.08),transparent 25%),var(--bg);
+      color:var(--text);line-height:1.65;overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1120px,92%);margin:auto}
+    nav{
+      position:fixed;top:0;left:0;right:0;z-index:20;
+      background:rgba(7,11,20,.72);backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(255,255,255,.06)
+    }
+    .nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-size:1.3rem;font-weight:800;letter-spacing:.4px}
+    .logo span{color:var(--cyan)}
+    .nav-links{display:flex;gap:25px;color:#b9c7da;font-size:.94rem}
+    .nav-links a:hover{color:#fff}
+    .menu{display:none;background:none;border:0;color:#fff;font-size:1.5rem}
+    .hero{min-height:100vh;display:grid;place-items:center;padding:120px 0 70px}
+    .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:55px;align-items:center}
+    .eyebrow{display:inline-flex;gap:9px;align-items:center;padding:8px 13px;border:1px solid #203653;border-radius:999px;color:#b9d9ff;background:#0b1423;font-size:.86rem}
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 15px var(--cyan)}
+    h1{font-size:clamp(3.1rem,7vw,6.2rem);line-height:.98;margin:22px 0 20px;letter-spacing:-4px}
+    h1 span{background:linear-gradient(100deg,var(--blue),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero p{max-width:650px;color:var(--muted);font-size:1.08rem}
+    .buttons{display:flex;gap:13px;flex-wrap:wrap;margin-top:30px}
+    .btn{padding:12px 18px;border-radius:12px;border:1px solid #2b405e;font-weight:700;transition:.2s}
+    .btn.primary{background:linear-gradient(100deg,#2d8cff,#55d8ff);color:#04101c;border:0}
+    .btn:hover{transform:translateY(-2px)}
+    .hero-card{
+      background:linear-gradient(145deg,rgba(20,34,57,.9),rgba(10,17,30,.95));
+      border:1px solid #21344e;border-radius:30px;padding:30px;box-shadow:var(--shadow);
+      position:relative;overflow:hidden
+    }
+    .hero-card:before{content:"";position:absolute;width:190px;height:190px;border-radius:50%;background:rgba(77,163,255,.14);filter:blur(25px);right:-55px;top:-50px}
+    .avatar{width:110px;height:110px;border-radius:28px;display:grid;place-items:center;background:linear-gradient(135deg,#1c5fb0,#59dfff);font-size:2.7rem;font-weight:900;color:#06111f;margin-bottom:24px}
+    .quick{display:grid;gap:14px}
+    .quick div{padding:13px 15px;background:rgba(255,255,255,.035);border:1px solid #1d2b41;border-radius:14px}
+    .quick small{display:block;color:#7487a1;text-transform:uppercase;letter-spacing:1.1px;font-size:.68rem}
+    section{padding:95px 0}
+    .section-head{margin-bottom:35px}
+    .section-head .kicker{color:var(--cyan);font-size:.78rem;text-transform:uppercase;letter-spacing:2px;font-weight:800}
+    .section-head h2{font-size:2.35rem;letter-spacing:-1.2px;margin-top:5px}
+    .section-head p{color:var(--muted);max-width:650px;margin-top:7px}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .panel{background:rgba(14,21,36,.75);border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+    .panel h3{margin-bottom:10px}
+    .panel p{color:var(--muted)}
+    .skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+    .skill{padding:9px 13px;border:1px solid #27415f;background:#0b1524;border-radius:10px;color:#cfe6ff}
+    .project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+    .project{padding:27px;border-radius:var(--radius);border:1px solid var(--line);background:linear-gradient(145deg,#101a2b,#0b111e);position:relative;overflow:hidden}
+    .project-num{color:#53708f;font-weight:800;font-size:.8rem}
+    .project h3{font-size:1.4rem;margin:10px 0 8px}
+    .project p{color:var(--muted);font-size:.94rem}
+    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+    .tag{font-size:.75rem;padding:5px 9px;border-radius:7px;background:#132238;color:#9bd5ff}
+    .timeline{display:grid;gap:15px}
+    .timeline-item{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:21px 0;border-bottom:1px solid var(--line)}
+    .timeline-item:last-child{border-bottom:0}
+    .date{color:var(--cyan);font-size:.84rem;font-weight:700}
+    .timeline-item h3{font-size:1.08rem}
+    .timeline-item p{color:var(--muted);margin-top:3px}
+    .cert-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+    .cert{background:#0d1625;border:1px solid var(--line);border-radius:17px;overflow:hidden;cursor:pointer;transition:.2s}
+    .cert:hover{transform:translateY(-4px);border-color:#31557a}
+    .cert img{width:100%;height:145px;object-fit:cover;display:block}
+    .cert-info{padding:14px}
+    .cert-info h3{font-size:.92rem;line-height:1.35}
+    .cert-info p{font-size:.76rem;color:var(--muted);margin-top:4px}
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .contact-card{padding:28px;border-radius:var(--radius);border:1px solid var(--line);background:#0d1625}
+    .contact-card p{color:var(--muted)}
+    .contact-links{display:grid;gap:11px;margin-top:18px}
+    .contact-link{padding:13px 15px;border:1px solid #203149;border-radius:12px;background:#0a1321}
+    footer{border-top:1px solid var(--line);padding:28px 0;color:#71839b;text-align:center;font-size:.85rem}
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;display:none;align-items:center;justify-content:center;padding:25px}
+    .modal.show{display:flex}
+    .modal img{max-width:min(1000px,95vw);max-height:88vh;border-radius:12px}
+    .close{position:fixed;right:22px;top:18px;font-size:2rem;background:none;border:0;color:#fff;cursor:pointer}
+    @media(max-width:850px){
+      .hero-grid,.about-grid,.contact{grid-template-columns:1fr}
+      .project-grid{grid-template-columns:1fr}
+      .cert-grid{grid-template-columns:repeat(2,1fr)}
+      .nav-links{display:none}
+      .menu{display:block}
+      h1{letter-spacing:-2px}
+    }
+    @media(max-width:520px){
+      section{padding:70px 0}
+      .cert-grid{grid-template-columns:1fr}
+      .timeline-item{grid-template-columns:1fr;gap:3px}
+      .hero-card{padding:22px}
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <div class="container nav-inner">
+    <a class="logo" href="#home">Aaradhana<span>.</span></a>
+    <div class="nav-links">
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a>
+      <a href="#education">Education</a><a href="#certifications">Certifications</a><a href="#contact">Contact</a>
+    </div>
+    <button class="menu" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+  </div>
+</nav>
+
+<main>
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow"><span class="dot"></span> B.Tech Information Technology • 3rd Year</div>
+      <h1>Hello, I'm <span>Aaradhana.</span></h1>
+      <p>I’m an IT student interested in programming, data science, databases and building practical technology projects. I enjoy learning new tools and turning ideas into simple, useful applications.</p>
+      <div class="buttons">
+        <a class="btn primary" href="#projects">View Projects</a>
+        <a class="btn" href="mailto:aaraa7731@gmail.com">Contact Me</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="avatar">AV</div>
+      <div class="quick">
+        <div><small>Degree</small>B.Tech Information Technology</div>
+        <div><small>University</small>Sathyabama University, Chennai</div>
+        <div><small>Focus</small>Programming • Data • Web</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="section-head"><div class="kicker">01 — About</div><h2>About Me</h2></div>
+    <div class="about-grid">
+      <div class="panel">
+        <h3>IT Student & Learner</h3>
+        <p>I am Aaradhana V, a third-year B.Tech Information Technology student at Sathyabama University, Chennai. My learning journey includes programming with Python and Java, web development with HTML, and introductory work across data science, databases, deep learning and cloud computing.</p>
+      </div>
+      <div class="panel" id="skills">
+        <h3>Technical Skills</h3>
+        <p>Technologies I am currently working with and developing through academic and personal learning.</p>
+        <div class="skills">
+          <span class="skill">Python</span><span class="skill">Java</span><span class="skill">HTML</span>
+          <span class="skill">Data Science</span><span class="skill">SQL</span><span class="skill">Cloud Computing</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="section-head"><div class="kicker">02 — Projects</div><h2>Selected Projects</h2><p>Two portfolio-ready project concepts aligned with Aaradhana’s current technical skills.</p></div>
+    <div class="project-grid">
+      <article class="project">
+        <div class="project-num">PROJECT 01</div>
+        <h3>Student Task Manager</h3>
+        <p>A productivity application designed to help students organize assignments, deadlines, priorities and daily tasks in one place.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">HTML</span><span class="tag">Productivity</span></div>
+      </article>
+      <article class="project">
+        <div class="project-num">PROJECT 02</div>
+        <h3>Personal Expense Tracker</h3>
+        <p>An application for recording daily income and expenses, categorizing transactions and viewing simple spending summaries.</p>
+        <div class="tags"><span class="tag">Java</span><span class="tag">HTML</span><span class="tag">Finance</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="container">
+    <div class="section-head"><div class="kicker">03 — Education</div><h2>Education & Experience</h2></div>
+    <div class="panel timeline">
+      <div class="timeline-item">
+        <div class="date">CURRENT</div>
+        <div><h3>B.Tech Information Technology — 3rd Year</h3><p>Sathyabama University, Chennai</p></div>
+      </div>
+      <div class="timeline-item">
+        <div class="date">JUN–JUL 2026</div>
+        <div><h3>Cloud Computing Internship</h3><p>Nxtlogic Software Solutions</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="container">
+    <div class="section-head"><div class="kicker">04 — Credentials</div><h2>Certifications</h2><p>Click a certificate to view it in a larger format.</p></div>
+    <div class="cert-grid">
+      <div class="cert" onclick="openCert('assets/python-data-science.jpg')"><img src="assets/python-data-science.jpg" alt="Python for Data Science certificate"><div class="cert-info"><h3>Python for Data Science</h3><p>Reliance Foundation Skilling Academy</p></div></div>
+      <div class="cert" onclick="openCert('assets/c-for-beginners.jpg')"><img src="assets/c-for-beginners.jpg" alt="C for Beginners certificate"><div class="cert-info"><h3>C for Beginners</h3><p>Great Learning Academy</p></div></div>
+      <div class="cert" onclick="openCert('assets/r-for-data-science.jpg')"><img src="assets/r-for-data-science.jpg" alt="R for Data Science certificate"><div class="cert-info"><h3>R for Data Science</h3><p>IBM Skills Network / Cognitive Class</p></div></div>
+      <div class="cert" onclick="openCert('assets/deep-learning-fundamentals.jpg')"><img src="assets/deep-learning-fundamentals.jpg" alt="Deep Learning Fundamentals certificate"><div class="cert-info"><h3>Deep Learning Fundamentals</h3><p>DeepLearning.TV / IBM Developer Skills Network</p></div></div>
+      <div class="cert" onclick="openCert('assets/prompt-engineering.jpg')"><img src="assets/prompt-engineering.jpg" alt="Prompt Engineering for Everyone certificate"><div class="cert-info"><h3>Prompt Engineering for Everyone</h3><p>IBM Skills Network / Cognitive Class</p></div></div>
+      <div class="cert" onclick="openCert('assets/sql-databases-101.jpg')"><img src="assets/sql-databases-101.jpg" alt="SQL and Relational Databases 101 certificate"><div class="cert-info"><h3>SQL & Relational Databases 101</h3><p>IBM Skills Network / Cognitive Class</p></div></div>
+      <div class="cert" onclick="openCert('assets/big-data-101.jpg')"><img src="assets/big-data-101.jpg" alt="Big Data 101 certificate"><div class="cert-info"><h3>Big Data 101</h3><p>IBM / Cognitive Class</p></div></div>
+      <div class="cert" onclick="openCert('assets/cloud-computing-internship.jpg')"><img src="assets/cloud-computing-internship.jpg" alt="Cloud Computing internship certificate"><div class="cert-info"><h3>Cloud Computing Internship</h3><p>Nxtlogic Software Solutions</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="section-head"><div class="kicker">05 — Contact</div><h2>Let's Connect</h2></div>
+    <div class="contact">
+      <div class="contact-card">
+        <h3>Open to learning & opportunities</h3>
+        <p>If you'd like to connect regarding projects, internships, collaborations or technology, reach out through the links below.</p>
+        <div class="contact-links">
+          <a class="contact-link" href="mailto:aaraa7731@gmail.com">✉️ aaraa7731@gmail.com</a>
+          <a class="contact-link" href="https://github.com/aara06" target="_blank" rel="noopener">◉ GitHub — aara06</a>
+          <a class="contact-link" href="https://www.linkedin.com/in/aaradhana-v-1045903b7" target="_blank" rel="noopener">in LinkedIn — Aaradhana V</a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <h3>Quick Profile</h3>
+        <div class="quick" style="margin-top:16px">
+          <div><small>Name</small>Aaradhana V</div>
+          <div><small>Role</small>IT Student</div>
+          <div><small>Education</small>B.Tech IT — 3rd Year</div>
+          <div><small>Location</small>Chennai, India</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>© 2026 Aaradhana V • IT Student Portfolio</footer>
+
+<div class="modal" id="modal" onclick="closeCert()">
+  <button class="close" aria-label="Close">×</button>
+  <img id="modalImg" src="" alt="Certificate preview">
+</div>
+
+<script>
+  function openCert(src){
+    document.getElementById('modalImg').src=src;
+    document.getElementById('modal').classList.add('show');
+  }
+  function closeCert(){
+    document.getElementById('modal').classList.remove('show');
+  }
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeCert()});
+  function toggleMenu(){
+    const links=document.querySelector('.nav-links');
+    links.style.display = links.style.display==='flex' ? 'none' : 'flex';
+    if(links.style.display==='flex'){
+      links.style.position='absolute'; links.style.top='72px'; links.style.left='0'; links.style.right='0';
+      links.style.flexDirection='column'; links.style.padding='18px 4%'; links.style.background='rgba(7,11,20,.97)';
+    }
+  }
+</script>
+</body>
+</html>
